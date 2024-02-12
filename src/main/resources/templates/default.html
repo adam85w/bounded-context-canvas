@@ -1,0 +1,174 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[[${boundedContext.name}]] :: Bounded Context Canvas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="jumbotron d-flex align-items-center min-vh-100">
+<div class="container mx-auto text-center border border-secondary">
+    <div class="row">
+        <div class="col-6 border border-secondary-subtle">
+            <h5 class="text-start">
+                Name
+                <small class="text-body-secondary">[[${boundedContext.name}]]</small>
+            </h5>
+        </div>
+        <div class="col-2 border border-secondary-subtle">
+            <h5 class="text-start">
+                Version
+                <small class="text-body-secondary">[[${boundedContext.version}]]</small>
+            </h5>
+        </div>
+        <div class="col-4 border border-secondary-subtle bs-warning-bg-subtle">
+            <small>github.com/ddd-crew/bounded-context-canvas v5</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5 border border-secondary-subtle">
+            <h5 class="text-start">Purpose</h5>
+            <p>[[${boundedContext.purpose}]]</p>
+        </div>
+        <div class="col-5 border border-secondary-subtle">
+            <h5 class="text-start">Strategic Classification</h5>
+            <div class="row">
+                <div class="col-4">
+                    <h6 class="text-start">Domain</h6>
+                    <div class="alert alert-warning shadow p-3 mb-5" role="alert">
+                        <span>[[${boundedContext.strategicClassification.domain.getName()}]]</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h6 class="text-start">Business Model</h6>
+                    <div class="alert alert-warning shadow p-3 mb-5" role="alert">
+                        <span>[[${boundedContext.strategicClassification.businessModel.getName()}]]</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h6 class="text-start">Evolution</h6>
+                    <div class="alert alert-warning shadow p-3 mb-5" role="alert">
+                        <span>[[${boundedContext.strategicClassification.evolution.getName()}]]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 border border-secondary-subtle">
+            <h5 class="text-start">Domain Rules</h5>
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="text-start">Rule type</h6>
+                    <div class="alert alert-warning shadow p-3 mb-5" role="alert">
+                        <span>[[${boundedContext.domainRules.ruleType.getName()}]]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h5 class="text-start">Inbound Communication</h5>
+            <div class="row m-3" th:each="communication: ${boundedContext.inboundCommunication}">
+                <div class="col-5">
+                    <div class="m-1" th:each="collaborator: ${communication.collaborators}">
+                        <span class="badge text-bg-primary text-wrap">
+                            <small class="fw-light">&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small>
+                            <br />
+                            <strong>[[${collaborator.name}]]</strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-1 position-relative">
+                    <i class="bi bi-arrow-right position-absolute top-50 start-50 translate-middle"></i>
+                </div>
+                <div class="col-6">
+                    <div class="m-1" th:each="message: ${communication.messages}">
+                        <span class="badge text-bg-warning text-wrap">
+                            <small class="fw-light">&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small>
+                            <br />
+                            <strong>[[${message.name}]]</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 border border-secondary-subtle">
+            <div class="m-2">
+                <h5>Ubiquitous Language</h5>
+                <small class="fw-light">Context specific domain terminology</small>
+                <div class="m-2">
+                    <th:block th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}">
+                        <span class="badge bg-success text-wrap"><u th:text="${ubiquitousLanguage.name}"></u><br />[[${ubiquitousLanguage.description}]]</span>
+                    </th:block>
+                </div>
+                <h5>Business Decisions</h5>
+                <small class="fw-light">Key business rules, policies and decisions</small>
+                <div class="m-2">
+                    <th:block th:each="businessDecision: ${boundedContext.businessDecisions}">
+                        <span class="badge bg-info text-dark text-wrap" th:text="${businessDecision}"></span>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <h5 class="text-start">Outbound Communication</h5>
+            <div class="row m-3" th:each="communication: ${boundedContext.outboundCommunication}">
+                <div class="col-6">
+                    <div class="m-1" th:each="message: ${communication.messages}">
+                        <span class="badge text-bg-warning text-wrap">
+                            <small class="fw-light">&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small>
+                            <br />
+                            <strong>[[${message.name}]]</strong>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-1 position-relative">
+                    <i class="bi bi-arrow-right position-absolute top-50 start-50 translate-middle"></i>
+                </div>
+                <div class="col-5">
+                    <div class="m-1" th:each="collaborator: ${communication.collaborators}">
+                        <span class="badge text-bg-primary text-wrap">
+                            <small class="fw-light">&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small>
+                            <br />
+                            <strong>[[${collaborator.name}]]</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5 border border-secondary-subtle">
+            <h5 class="text-start">Assumptions</h5>
+            <ul th:each="assumption: ${boundedContext.assumptions}">
+                <li class="text-start"  th:text="${assumption}" />
+            </ul>
+        </div>
+        <div class="col-5 border border-secondary-subtle">
+            <h5 class="text-start">Verification Metrics</h5>
+            <ul th:each="verificationMetric: ${boundedContext.verificationMetrics}">
+                <li class="text-start"  th:text="${verificationMetric}" />
+            </ul>
+        </div>
+        <div class="col-2 border border-secondary-subtle">
+            <h5 class="text-start">Open Questions</h5>
+            <p th:if="${boundedContext.openQuestions.isEmpty()}">--</p>
+            <ul th:if="${!boundedContext.openQuestions.isEmpty()}" th:each="openQuestion: ${boundedContext.openQuestions}">
+                <li class="text-start" th:text="${openQuestion}" />
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 border border-secondary-subtle text-start">
+            <small class="fw-light">generated at <th:block th:text="${#temporals.format(timestamp,'yyyy-MM-dd HH:mm:ss.SSS')}"></th:block></small>
+        </div>
+        <div class="col-6 border border-secondary-subtle text-end">
+            <small class="fw-light">&copy; <th:block th:text="${#temporals.format(timestamp,'yyyy')}"></th:block> Adam Woźniak</small>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
