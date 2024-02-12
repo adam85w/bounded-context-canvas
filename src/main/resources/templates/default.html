@@ -70,6 +70,8 @@
     <div class="row">
         <div class="col-4">
             <h5 class="text-start">Inbound Communication</h5>
+            <div class="row m-3" th:if="${boundedContext.inboundCommunication.isEmpty()}">--</div>
+            <th:block th:if="${!boundedContext.inboundCommunication.isEmpty()}">
             <div class="row m-3" th:each="communication: ${boundedContext.inboundCommunication}">
                 <div class="col-5">
                     <div class="m-1" th:each="collaborator: ${communication.collaborators}">
@@ -93,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            </th:block>
         </div>
         <div class="col-4 border border-secondary-subtle">
             <div class="m-2">
@@ -114,29 +117,32 @@
         </div>
         <div class="col-4">
             <h5 class="text-start">Outbound Communication</h5>
-            <div class="row m-3" th:each="communication: ${boundedContext.outboundCommunication}">
-                <div class="col-6">
-                    <div class="m-1" th:each="message: ${communication.messages}">
-                        <span class="badge text-bg-warning text-wrap">
-                            <small class="fw-light">&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small>
-                            <br />
-                            <strong>[[${message.name}]]</strong>
-                        </span>
+            <div class="row m-3" th:if="${boundedContext.outboundCommunication.isEmpty()}">--</div>
+            <th:block th:if="${!boundedContext.outboundCommunication.isEmpty()}">
+                <div class="row m-3" th:each="communication: ${boundedContext.outboundCommunication}">
+                    <div class="col-6">
+                        <div class="m-1" th:each="message: ${communication.messages}">
+                            <span class="badge text-bg-warning text-wrap">
+                                <small class="fw-light">&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small>
+                                <br />
+                                <strong>[[${message.name}]]</strong>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-1 position-relative">
+                        <i class="bi bi-arrow-right position-absolute top-50 start-50 translate-middle"></i>
+                    </div>
+                    <div class="col-5">
+                        <div class="m-1" th:each="collaborator: ${communication.collaborators}">
+                            <span class="badge text-bg-primary text-wrap">
+                                <small class="fw-light">&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small>
+                                <br />
+                                <strong>[[${collaborator.name}]]</strong>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-1 position-relative">
-                    <i class="bi bi-arrow-right position-absolute top-50 start-50 translate-middle"></i>
-                </div>
-                <div class="col-5">
-                    <div class="m-1" th:each="collaborator: ${communication.collaborators}">
-                        <span class="badge text-bg-primary text-wrap">
-                            <small class="fw-light">&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small>
-                            <br />
-                            <strong>[[${collaborator.name}]]</strong>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            </th:block>
         </div>
     </div>
     <div class="row">

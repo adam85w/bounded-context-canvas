@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BoundedContext {
@@ -49,7 +51,6 @@ public class BoundedContext {
     private final DomainRules domainRules;
 
     @Valid
-    @NotEmpty
     @Schema(name = "inboundCommunication", description = "Inbound communication represents collaborations that are initiated by other collaborators.",
         type = "array", example = """
             [
@@ -100,7 +101,6 @@ public class BoundedContext {
     private final List<Communication> inboundCommunication;
 
     @Valid
-    @NotEmpty
     @Schema(name ="outboundCommunication", description = """
             Outbound communication represents collaborations that are initiated by this context to interact with other collaborators.
             The same message types and notations apply as inbound communication.""",
@@ -243,13 +243,13 @@ public class BoundedContext {
         this.purpose = purpose;
         this.strategicClassification = strategicClassification;
         this.domainRules = domainRules;
-        this.inboundCommunication = inboundCommunication;
-        this.outboundCommunication = outboundCommunication;
+        this.inboundCommunication = inboundCommunication == null ? Collections.emptyList() : inboundCommunication;
+        this.outboundCommunication = outboundCommunication == null ? Collections.emptyList() : outboundCommunication;
         this.ubiquitousLanguage = ubiquitousLanguage;
         this.businessDecisions = businessDecisions;
         this.assumptions = assumptions;
         this.verificationMetrics = verificationMetrics;
-        this.openQuestions = openQuestions;
+        this.openQuestions = openQuestions == null ? Collections.emptyList() : openQuestions;
     }
 
 
