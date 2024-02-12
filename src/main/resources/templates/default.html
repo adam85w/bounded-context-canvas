@@ -100,14 +100,14 @@
                 <small class="fw-light">Context specific domain terminology</small>
                 <div class="m-2">
                     <th:block th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}">
-                        <span class="badge bg-success text-wrap"><u th:text="${ubiquitousLanguage.name}"></u><br />[[${ubiquitousLanguage.description}]]</span>
+                        <span class="badge bg-success text-wrap m-1"><u th:text="${ubiquitousLanguage.name}"></u><br />[[${ubiquitousLanguage.description}]]</span>
                     </th:block>
                 </div>
                 <h5>Business Decisions</h5>
                 <small class="fw-light">Key business rules, policies and decisions</small>
                 <div class="m-2">
                     <th:block th:each="businessDecision: ${boundedContext.businessDecisions}">
-                        <span class="badge bg-info text-dark text-wrap" th:text="${businessDecision}"></span>
+                        <span class="badge bg-info text-dark text-wrap m-1" th:text="${businessDecision}"></span>
                     </th:block>
                 </div>
             </div>
