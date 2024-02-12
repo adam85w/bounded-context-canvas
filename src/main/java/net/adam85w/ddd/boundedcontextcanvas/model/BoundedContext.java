@@ -7,7 +7,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotBlank;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
