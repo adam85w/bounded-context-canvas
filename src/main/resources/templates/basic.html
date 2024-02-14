@@ -30,9 +30,9 @@
     </tr>
     <tr>
         <td style="width: 100%;">
-            <table>
+            <table style="width: 100%;">
                 <tr>
-                    <td style="width: 50%; vertical-align:top; border: 1px solid #888;"><h1>Purpose</h1><p>[[${boundedContext.purpose}]]</p></td>
+                    <td style="width: 50%; vertical-align:top; border: 1px solid #888;"><h1>Purpose</h1><p style="text-align: center;">[[${boundedContext.purpose}]]</p></td>
                     <td style="width: 35%; vertical-align:top; border: 1px solid #888;"><h1>Strategic Classification</h1>
                         <table style="width: 100%; border: 1px solid #888">
                             <tr>
@@ -66,14 +66,14 @@
                                 <tr th:each="communication: ${boundedContext.inboundCommunication}">
                                     <td style="width: 50%">
                                         <p style="text-align: center; padding: 2px; margin: 2px; background-color: #eee;" th:each="collaborator: ${communication.collaborators}">
-                                            <small>&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small><br />
+                                            <small>&lt;&lt; [[${collaborator.type.getName()}]] &gt;&gt;</small><br />
                                             [[${collaborator.name}]]
                                         </p>
                                     </td>
                                     <td style="width: 5%"><strong>&gt;&gt;&gt;</strong></td>
                                     <td style="width: 45%">
                                         <p style="text-align: center; padding: 2px; margin: 2px; background-color: #eee;" th:each="message: ${communication.messages}">
-                                            <small>&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small><br />
+                                            <small>&lt;&lt; [[${message.type.getName()}]] &gt;&gt;</small><br />
                                             [[${message.name}]]
                                         </p>
                                     </td>
@@ -101,14 +101,14 @@
                                 <tr th:each="communication: ${boundedContext.outboundCommunication}">
                                     <td style="width: 45%;">
                                         <p style="text-align: center; padding: 2px; margin: 2px; background-color: #eee;" th:each="message: ${communication.messages}">
-                                            <small>&lt;&lt;[[${message.type.getName()}]]&gt;&gt;</small><br />
+                                            <small>&lt;&lt; [[${message.type.getName()}]] &gt;&gt;</small><br />
                                             [[${message.name}]]
                                         </p>
                                     </td>
                                     <td style="width: 5%;"><strong>&gt;&gt;&gt;</strong></td>
                                     <td style="width: 50%;">
                                         <p style="text-align: center; padding: 2px; margin: 2px; background-color: #eee;" th:each="collaborator: ${communication.collaborators}">
-                                            <small>&lt;&lt;[[${collaborator.type.getName()}]]&gt;&gt;</small><br />
+                                            <small>&lt;&lt; [[${collaborator.type.getName()}]] &gt;&gt;</small><br />
                                             [[${collaborator.name}]]
                                         </p>
                                     </td>
