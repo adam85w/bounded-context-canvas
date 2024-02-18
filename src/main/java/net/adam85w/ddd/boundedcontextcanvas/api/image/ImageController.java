@@ -3,6 +3,7 @@ package net.adam85w.ddd.boundedcontextcanvas.api.image;
 import jakarta.validation.Valid;
 import net.adam85w.ddd.boundedcontextcanvas.model.BoundedContext;
 import net.adam85w.ddd.boundedcontextcanvas.template.TemplateService;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,9 +17,10 @@ import java.io.ByteArrayOutputStream;
 
 @RestController
 @RequestMapping("/api/v1/bounded-context-canvas/image")
+@ConditionalOnProperty(value = "application.enable-api", havingValue = "original")
 class ImageController {
 
-    private static final String TEMPLATE_NAME = "basic";
+    private static final String TEMPLATE_NAME = "original/basic";
 
     private static final String IMAGE_NAME = "bounded_context";
 

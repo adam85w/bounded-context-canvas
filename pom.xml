@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.adam85w.ddd</groupId>
 	<artifactId>bounded-context-canvas</artifactId>
-	<version>0.2</version>
+	<version>0.3</version>
 	<name>Bounded Context Canvas Application</name>
 	<description>The Bounded Context Canvas Application project aims to automate the creation of bounded context canvases.</description>
 	<properties>

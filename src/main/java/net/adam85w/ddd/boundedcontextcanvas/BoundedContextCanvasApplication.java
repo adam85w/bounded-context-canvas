@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author Adam Woźniak <adam85.w@gmail.com>
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"net.adam85w.ddd.boundedcontextcanvas"})
 public class BoundedContextCanvasApplication {
 
 	public static void main(String[] args) {
