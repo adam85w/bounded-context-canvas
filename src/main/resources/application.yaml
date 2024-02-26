@@ -1,9 +1,11 @@
+application:
+  name: @name@
+  version: @version@
+  enable-api: original
 server:
   port: 8083
 springdoc:
   api-docs:
     path: "/api-docs"
   swagger-ui:
-    path: "/swagger-ui-custom.html"
-application:
-  enable-api: original
+    path: "/"
