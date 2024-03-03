@@ -3,10 +3,11 @@ package net.adam85w.ddd.boundedcontextcanvas.template.html;
 import net.adam85w.ddd.boundedcontextcanvas.model.BoundedContext;
 import net.adam85w.ddd.boundedcontextcanvas.template.Template;
 import net.adam85w.ddd.boundedcontextcanvas.template.TemplateService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
- import org.thymeleaf.exceptions.TemplateInputException;
+import org.thymeleaf.exceptions.TemplateInputException;
 
 import java.time.LocalDateTime;
 import java.util.Locale;
@@ -18,8 +19,11 @@ class HtmlTemplateService implements TemplateService<String> {
 
     private final TemplateEngine templateEngine;
 
-    HtmlTemplateService(TemplateEngine templateEngine) {
+    private final ApplicationContext applicationContext;
+
+    HtmlTemplateService(TemplateEngine templateEngine, @Value("${application.name}") String applicationName, @Value("${application.version}") String applicationVersion) {
         this.templateEngine = templateEngine;
+        this.applicationContext = new ApplicationContext(applicationName, applicationVersion);
     }
 
     @Override
@@ -28,6 +32,7 @@ class HtmlTemplateService implements TemplateService<String> {
             Context context = new Context();
             context.setLocale(Locale.ENGLISH);
             context.setVariable("timestamp", LocalDateTime.now());
+            context.setVariable("applicationContext", applicationContext);
             context.setVariable("boundedContext", boundedContext);
             return new Template<String>(name, this.templateEngine.process(name + SUFFIX, context));
         } catch (TemplateInputException exception) {

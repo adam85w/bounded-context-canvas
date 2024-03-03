@@ -1,6 +1,6 @@
 application:
-  name: @name@
-  version: @version@
+  name: $name$
+  version: $version$
   enable-api: original
 server:
   port: 8083
