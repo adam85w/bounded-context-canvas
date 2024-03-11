@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.adam85w.ddd</groupId>
-	<artifactId>bounded-context-canvas</artifactId>
-	<version>0.3.3</version>
+	<artifactId>bounded-context-template</artifactId>
+	<version>1.0.0</version>
 	<name>Bounded Context Canvas Application</name>
 	<description>The Bounded Context Canvas Application project aims to automate the creation of bounded context canvases.</description>
 	<properties>
@@ -80,6 +80,7 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>application.yaml</include>
+					<include>banner.txt</include>
 				</includes>
 			</resource>
 			<resource>
@@ -87,6 +88,7 @@
 				<directory>src/main/resources</directory>
 				<excludes>
 					<exclude>application.yaml</exclude>
+					<exclude>banner.txt</exclude>
 				</excludes>
 				<includes>
 					<include>**</include>

@@ -1,8 +1,7 @@
 package net.adam85w.ddd.boundedcontextcanvas.template.image;
 
+import net.adam85w.ddd.boundedcontextcanvas.template.*;
 import net.adam85w.ddd.boundedcontextcanvas.model.BoundedContext;
-import net.adam85w.ddd.boundedcontextcanvas.template.Template;
-import net.adam85w.ddd.boundedcontextcanvas.template.TemplateService;
 import org.springframework.stereotype.Service;
 import org.w3c.tidy.Tidy;
 import org.xhtmlrenderer.swing.Java2DRenderer;
@@ -37,7 +36,7 @@ class ImageTemplateService implements TemplateService<ByteArrayOutputStream> {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             ImageIO.write(img, "png", outputStream);
             return new Template<>(name, outputStream);
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

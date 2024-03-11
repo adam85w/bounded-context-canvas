@@ -1,7 +1,7 @@
 application:
   name: $name$
   version: $version$
-  enable-api: original
+  brand: default
 server:
   port: 8083
 springdoc:

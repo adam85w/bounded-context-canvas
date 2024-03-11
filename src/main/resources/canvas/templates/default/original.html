@@ -148,21 +148,21 @@
     <div class="row">
         <div class="col-5 border border-secondary-subtle">
             <h5 class="text-start">Assumptions</h5>
-            <ul th:each="assumption: ${boundedContext.assumptions}">
-                <li class="text-start"  th:text="${assumption}" />
+            <ul>
+                <li class="text-start" th:each="assumption: ${boundedContext.assumptions}" th:text="${assumption}" />
             </ul>
         </div>
         <div class="col-5 border border-secondary-subtle">
             <h5 class="text-start">Verification Metrics</h5>
-            <ul th:each="verificationMetric: ${boundedContext.verificationMetrics}">
-                <li class="text-start"  th:text="${verificationMetric}" />
+            <ul>
+                <li class="text-start" th:each="verificationMetric: ${boundedContext.verificationMetrics}" th:text="${verificationMetric}" />
             </ul>
         </div>
         <div class="col-2 border border-secondary-subtle">
             <h5 class="text-start">Open Questions</h5>
             <p th:if="${boundedContext.openQuestions.isEmpty()}">--</p>
-            <ul th:if="${!boundedContext.openQuestions.isEmpty()}" th:each="openQuestion: ${boundedContext.openQuestions}">
-                <li class="text-start" th:text="${openQuestion}" />
+            <ul th:if="${!boundedContext.openQuestions.isEmpty()}">
+                <li class="text-start" th:each="openQuestion: ${boundedContext.openQuestions}" th:text="${openQuestion}" />
             </ul>
         </div>
     </div>

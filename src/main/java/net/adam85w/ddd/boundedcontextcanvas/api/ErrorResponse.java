@@ -1,5 +1,7 @@
 package net.adam85w.ddd.boundedcontextcanvas.api;
 
+import net.adam85w.ddd.boundedcontextcanvas.ApplicationContext;
+
 import java.time.LocalDateTime;
 
 public class ErrorResponse {
@@ -10,14 +12,17 @@ public class ErrorResponse {
 
     private final String appVersion;
 
+    private final String brand;
+
     private final String path;
 
     private final String message;
 
 
-    public ErrorResponse(String appName, String appVersion, String path, String message) {
-        this.appName = appName;
-        this.appVersion = appVersion;
+    public ErrorResponse(ApplicationContext applicationContext, String path, String message) {
+        this.appName = applicationContext.name();
+        this.appVersion = applicationContext.version();
+        this.brand = applicationContext.brand();
         this.message = message;
         this.path = path;
         this.time = LocalDateTime.now();
@@ -33,6 +38,10 @@ public class ErrorResponse {
 
     public String getAppVersion() {
         return appVersion;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 
     public String getPath() {

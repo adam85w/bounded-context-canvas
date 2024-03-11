@@ -1,4 +1,7 @@
 package net.adam85w.ddd.boundedcontextcanvas;
 
-public record ApplicationContext(String name, String version) {
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "application")
+public record ApplicationContext(String name, String version, String brand)  {
 }

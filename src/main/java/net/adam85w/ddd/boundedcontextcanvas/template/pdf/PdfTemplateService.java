@@ -1,8 +1,7 @@
 package net.adam85w.ddd.boundedcontextcanvas.template.pdf;
 
+import net.adam85w.ddd.boundedcontextcanvas.template.*;
 import net.adam85w.ddd.boundedcontextcanvas.model.BoundedContext;
-import net.adam85w.ddd.boundedcontextcanvas.template.Template;
-import net.adam85w.ddd.boundedcontextcanvas.template.TemplateService;
 import org.springframework.stereotype.Service;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 

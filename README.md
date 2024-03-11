@@ -1,7 +1,7 @@
 # Description
 The Bounded Context Canvas Application project aims to automate the creation of bounded context canvases.
 
-The application utilizes the documentation prepared by Domain-Driven Design Crew  available at: https://github.com/ddd-crew/bounded-context-canvas which fulfill the DDD principles.
+The application utilizes the documentation prepared by Domain-Driven Design Crew  available at: https://github.com/ddd-crew/bounded-context-template which fulfill the DDD principles.
 # Usage
 To build the application use the maven command
 ```bash
@@ -13,44 +13,49 @@ java --version
 ```
 To execute the application:
 ```bash
-java -jar ./bounded-context-canvas-x.x.jar
+java -jar ./bounded-context-template-x.x.jar
 ```
 The swagger interface is available at: /swagger-ui/index.html
 
 
 # Extending
 ## Templates
-To write a new template you have to create a new html file and put in the directory: 
+To write a new template you have to create a new html file and put it in the directory: 
 ```
 main/resource/templates/original/
 ```
+And describe the newly created template in the canvas/templates/default/context.yaml file.
+
 The name of a file without extension will be the name of your created template.
-## Model and templates
+## Model and template
 To extend the model you have to create your own model class extending the BoundedContext class.
 
 To start using your classes as a model you have to create your own set of controllers.
 To do it follow the next steps. 
 
-1. Create controllers and add on each an annotation for enabling only them:
+1. Create controllers and add on each an annotation pointing to your brand:
 ```java
-@ConditionalOnProperty(value = "application.enable-api", havingValue = "{your_name}")
+@ConditionalOnProperty(value = "application.brand", havingValue = "default")
 ```
 2. Add your package for scanning, modifying the annotation @SpringBootApplication on the BoundedContextCanvasApplication class:
 ```java
-@SpringBootApplication(scanBasePackages = {"net.adam85w.ddd.boundedcontextcanvas", "your package"})
+@SpringBootApplication(scanBasePackages = {"net.adam85w.ddd.boundedcontextcanvas", "your package goes here"})
 ```
 3. Enable your controllers and disable the original controllers, changing the configuration in an application.yaml file:
 ```yaml
 application:
-  enable-api: original
+  brand: "your brand"
 ```
-
-The best way to create new templates using your own model is to create a new directory for them in:
+The correct way to create new templates using your own model is to create a new directory for them in:
 ```
-main/resource/templates/
+main/resource/canvas/templates/
 ```
-and add the path to template names in created controllers.
-
+The directory must match with the name of your brand defined in the configuration file:
+```yaml
+application:
+  brand: "your brand"
+```
+It is also mandatory to write the context file in the template directory, to see how it should be done please look at context.yaml in the default brand.
 # License & Author
 ## License
 The Bounded Context Canvas Application is licensed under GNU GENERAL PUBLIC LICENSE v3.

@@ -1,0 +1,15 @@
+templates:
+  - name: basic
+    author: Adam Woźniak
+    support:
+      - IMAGE
+      - PDF
+      - HTML
+  - name: original
+    author: Adam Woźniak
+    support:
+      - HTML
+  - name: "basic-confluence"
+    author: Adam Woźniak
+    support:
+      - HTML

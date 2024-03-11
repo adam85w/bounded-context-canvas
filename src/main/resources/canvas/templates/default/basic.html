@@ -37,7 +37,7 @@
                         <table style="width: 100%; border: 1px solid #888">
                             <tr>
                                 <td style="width: 33%; border: 1px solid #888"><h2>Domain</h2><p>[[${boundedContext.strategicClassification.domain.getName()}]]</p></td>
-                                <td style="width: 33%; border: 1px solid #888"><h2>Domain</h2><p>[[${boundedContext.strategicClassification.businessModel.getName()}]]</p></td>
+                                <td style="width: 33%; border: 1px solid #888"><h2>Business Model</h2><p>[[${boundedContext.strategicClassification.businessModel.getName()}]]</p></td>
                                 <td style="border: 1px solid #888"><h2>Evolution</h2><p>[[${boundedContext.strategicClassification.evolution.getName()}]]</p></td>
                             </tr>
                         </table>
@@ -84,13 +84,13 @@
                     <td style="width: 30%; vertical-align:top; border: 1px solid #888;">
                         <h1>Ubiquitous Language</h1>
                         <p><small>Context specific domain terminology</small></p>
-                        <ul th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}">
-                            <li><u th:text="${ubiquitousLanguage.name}"></u> [[${ubiquitousLanguage.description}]]</li>
+                        <ul>
+                            <li style="padding-bottom: 3px;" th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}"><u th:text="${ubiquitousLanguage.name}"></u> [[${ubiquitousLanguage.description}]]</li>
                         </ul>
                         <h1>Business Decisions</h1>
                         <p><small>Key business rules, policies and decisions</small></p>
-                        <ul th:each="businessDecision: ${boundedContext.businessDecisions}">
-                            <li>[[${businessDecision}]]</li>
+                        <ul>
+                            <li style="padding-bottom: 3px;" th:each="businessDecision: ${boundedContext.businessDecisions}">[[${businessDecision}]]</li>
                         </ul>
                     </td>
                     <td style="width: 35%; vertical-align:top; border: 1px solid #888;">
@@ -126,21 +126,21 @@
                 <tr>
                     <td style="width: 35%; vertical-align:top; border: 1px solid #888;">
                         <h1>Assumptions</h1>
-                        <ul th:each="assumption: ${boundedContext.assumptions}">
-                            <li th:text="${assumption}" />
+                        <ul>
+                            <li style="padding-bottom: 3px;" th:each="assumption: ${boundedContext.assumptions}" th:text="${assumption}" />
                         </ul>
                     </td>
                     <td  style="width: 35%; vertical-align:top; border: 1px solid #888;">
                         <h1>Verification Metrics</h1>
-                        <ul th:each="verificationMetric: ${boundedContext.verificationMetrics}">
-                            <li th:text="${verificationMetric}" />
+                        <ul>
+                            <li style="padding-bottom: 3px;" th:each="verificationMetric: ${boundedContext.verificationMetrics}" th:text="${verificationMetric}" />
                         </ul>
                     </td>
                     <td  style="width: 30%; vertical-align:top; border: 1px solid #888;">
-                        <h1 class="text-start">Open Questions</h1>
+                        <h1>Open Questions</h1>
                         <p th:if="${boundedContext.openQuestions.isEmpty()}">--</p>
-                        <ul th:if="${!boundedContext.openQuestions.isEmpty()}" th:each="openQuestion: ${boundedContext.openQuestions}">
-                            <li th:text="${openQuestion}" />
+                        <ul th:if="${!boundedContext.openQuestions.isEmpty()}">
+                            <li style="padding-bottom: 3px;" th:each="openQuestion: ${boundedContext.openQuestions}" th:text="${openQuestion}" />
                         </ul>
                     </td>
                 </tr>
