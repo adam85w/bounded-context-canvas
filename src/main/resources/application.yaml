@@ -9,3 +9,10 @@ springdoc:
     path: "/api-docs"
   swagger-ui:
     path: "/"
+
+management.endpoints.web.exposure.include: health, info, context
+management.info.env.enabled: true
+
+info.app.name: ${application.name}
+info.app.version: ${application.version}
+info.app.brand: ${application.brand}
