@@ -5,11 +5,8 @@ templates:
       - IMAGE
       - PDF
       - HTML
+      - CONFLUENCE
   - name: original
-    author: Adam Woźniak
-    support:
-      - HTML
-  - name: "basic-confluence"
     author: Adam Woźniak
     support:
       - HTML
@@ -24,6 +21,7 @@ templates:
     support:
       - HTML
       - PDF
+      - CONFLUENCE
   - name: sea
     author: Adam Woźniak
     support:
@@ -36,3 +34,4 @@ templates:
       - HTML
       - PDF
       - IMAGE
+      - CONFLUENCE
