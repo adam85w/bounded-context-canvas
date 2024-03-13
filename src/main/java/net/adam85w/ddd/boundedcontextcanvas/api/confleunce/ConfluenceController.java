@@ -21,7 +21,7 @@ class ConfluenceController {
     }
 
     @PostMapping
-    public ResponseEntity<String> generate(@RequestParam(name = "templateName", defaultValue = "basic")
+    public ResponseEntity<String> generate(@RequestParam(name = "templateName", defaultValue = "modern")
                                            @TemplateNameConstraint(templateType = TemplateType.CONFLUENCE) final String templateName,
                                            @RequestBody @Valid final BoundedContext boundedContext)  {
         return ResponseEntity.ok(confluenceTemplateService.generate(templateName, boundedContext).content());

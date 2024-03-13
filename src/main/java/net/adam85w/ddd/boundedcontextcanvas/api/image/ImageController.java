@@ -30,7 +30,7 @@ class ImageController {
     }
 
     @PostMapping
-    public ResponseEntity<byte[]> generate(@RequestParam(name = "templateName", defaultValue = "basic")
+    public ResponseEntity<byte[]> generate(@RequestParam(name = "templateName", defaultValue = "modern")
                                                @TemplateNameConstraint(templateType = TemplateType.IMAGE) final String templateName,
                                            @RequestBody @Valid final BoundedContext boundedContext)  {
         HttpHeaders headers = new HttpHeaders();

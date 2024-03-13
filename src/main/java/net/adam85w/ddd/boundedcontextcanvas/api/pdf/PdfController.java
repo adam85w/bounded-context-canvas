@@ -30,7 +30,7 @@ class PdfController {
     }
 
     @PostMapping
-    public ResponseEntity<byte[]> generate(@RequestParam(name = "templateName", defaultValue = "basic")
+    public ResponseEntity<byte[]> generate(@RequestParam(name = "templateName", defaultValue = "modern")
                                                @TemplateNameConstraint(templateType = TemplateType.PDF) final String templateName,
                                            @RequestBody @Valid final BoundedContext boundedContext)  {
         HttpHeaders headers = new HttpHeaders();
