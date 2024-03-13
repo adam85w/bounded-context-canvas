@@ -4,9 +4,7 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import net.adam85w.ddd.boundedcontextcanvas.template.TemplateContextCollection;
 import net.adam85w.ddd.boundedcontextcanvas.template.TemplateType;
-import org.springframework.stereotype.Component;
 
-@Component
 public class TemplateNameValidator implements ConstraintValidator<TemplateNameConstraint, String> {
 
     private final TemplateContextCollection templateContextCollection;

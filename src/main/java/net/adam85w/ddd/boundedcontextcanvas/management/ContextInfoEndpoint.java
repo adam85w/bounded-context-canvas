@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Endpoint(id = "context")
 @Component
-public class ContextInfoEndpoint {
+class ContextInfoEndpoint {
 
     private final ContextInfo contextInfo;
 

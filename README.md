@@ -30,7 +30,7 @@ The swagger interface is available at: /swagger-ui/index.html
 ## Templates
 To write a new template you have to create a new html file and put it in the directory: 
 ```
-main/resource/templates/original/
+main/resource/canvas/templates/default/
 ```
 And describe the newly created template in the canvas/templates/default/context.yaml file.
 
