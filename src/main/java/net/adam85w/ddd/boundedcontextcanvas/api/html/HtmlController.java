@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v2/bounded-context-canvas/html")
+@RequestMapping("/api/bounded-context-canvas/html")
 @ConditionalOnProperty(value = "application.brand", havingValue = "default")
 class HtmlController {
 

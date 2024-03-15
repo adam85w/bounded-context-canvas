@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/bounded-context-canvas/confluence")
+@RequestMapping("/api/bounded-context-canvas/confluence")
 @ConditionalOnProperty(value = "application.brand", havingValue = "default")
 class ConfluenceController {
 

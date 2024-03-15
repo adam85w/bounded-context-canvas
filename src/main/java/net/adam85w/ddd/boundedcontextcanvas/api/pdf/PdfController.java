@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.ByteArrayOutputStream;
 
 @RestController
-@RequestMapping("/api/v2/bounded-context-canvas/pdf")
+@RequestMapping("/api/bounded-context-canvas/pdf")
 @ConditionalOnProperty(value = "application.brand", havingValue = "default")
 class PdfController {
 

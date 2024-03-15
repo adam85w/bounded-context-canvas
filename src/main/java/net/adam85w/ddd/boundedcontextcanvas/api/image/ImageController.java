@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.ByteArrayOutputStream;
 
 @RestController
-@RequestMapping("/api/v2/bounded-context-canvas/image")
+@RequestMapping("/api/bounded-context-canvas/image")
 @ConditionalOnProperty(value = "application.brand", havingValue = "default")
 class ImageController {
 
