@@ -7,7 +7,7 @@ The application utilizes the documentation prepared by Domain-Driven Design Crew
 1. Bounded context canvas generated from JSON using a REST API.
 2. Model of the bounded context canvas in version 5.
 3. Swagger with descriptions and a built-in example.
-4. Four different types of formats, including HTML, image, PDF, and Confluence HTML.
+4. Five different types of formats, including HTML, image, PDF, MARKDOWN, and Confluence HTML.
 5. Six different templates available out of the box.
 
 # Usage

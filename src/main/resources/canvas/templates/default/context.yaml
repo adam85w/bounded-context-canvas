@@ -22,6 +22,7 @@ templates:
       - HTML
       - PDF
       - CONFLUENCE
+      - MARKDOWN
   - name: sea
     author: Adam Woźniak
     support:
