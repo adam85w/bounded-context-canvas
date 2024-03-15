@@ -18,12 +18,6 @@ public class BoundedContext {
     private final String name;
 
     @NotBlank
-    @Size(min = 1, max = 10)
-    @Schema(name = "version", description = "The version of a bounded context", example = "1.0.0")
-    private final String version;
-
-
-    @NotBlank
     @Size(max = 500)
     @Schema(name = "purpose", description = """
                                             What benefits does this context provide
@@ -226,7 +220,6 @@ public class BoundedContext {
     private final List<String> openQuestions;
 
     public BoundedContext(String name,
-                          String version,
                           String purpose,
                           StrategicClassification strategicClassification,
                           DomainRules domainRules,
@@ -238,7 +231,6 @@ public class BoundedContext {
                           List<String> verificationMetrics,
                           List<String> openQuestions) {
         this.name = name;
-        this.version = version;
         this.purpose = purpose;
         this.strategicClassification = strategicClassification;
         this.domainRules = domainRules;
@@ -254,10 +246,6 @@ public class BoundedContext {
 
     public String getName() {
         return name;
-    }
-
-    public String getVersion() {
-        return version;
     }
 
     public String getPurpose() {
