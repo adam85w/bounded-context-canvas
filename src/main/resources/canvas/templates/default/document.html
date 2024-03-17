@@ -27,13 +27,13 @@
 <h2>Rule type</h2><p>[[${boundedContext.domainRules.ruleType.getName()}]]</p>
 <h1>Ubiquitous Language</h1>
 <p><small>Context specific domain terminology</small></p>
-<ul th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}">
-    <li><u th:text="${ubiquitousLanguage.name}"></u> [[${ubiquitousLanguage.description}]]</li>
+<ul>
+    <li th:each="ubiquitousLanguage: ${boundedContext.ubiquitousLanguage}"><b th:text="${ubiquitousLanguage.name}"></b> [[${ubiquitousLanguage.description}]]</li>
 </ul>
 <h1>Business Decisions</h1>
 <p><small>Key business rules, policies and decisions</small></p>
-<ul th:each="businessDecision: ${boundedContext.businessDecisions}">
-    <li>[[${businessDecision}]]</li>
+<ul>
+    <li th:each="businessDecision: ${boundedContext.businessDecisions}">[[${businessDecision}]]</li>
 </ul>
 <h1>Inbound Communication</h1>
 <p th:if="${boundedContext.inboundCommunication.isEmpty()}">--</p>
@@ -106,7 +106,7 @@
 </ul>
 <h1>Credits &amp; Copyrights</h1>
 <p>DDD Crew: <a href="https://github.com/ddd-crew/bounded-context-canvas">github.com/ddd-crew/bounded-context-canvas</a></p>
-<p>Adam Woźniak <a href="https://github.com/adam85w/bounded-context-canvas">github.com/adam85w/bounded-context-canvas</a></p>
+<p>Adam Woźniak: <a href="https://github.com/adam85w/bounded-context-canvas">github.com/adam85w/bounded-context-canvas</a></p>
 <p>Generated at <th:block th:text="${#temporals.format(timestamp,'yyyy-MM-dd HH:mm:ss.SSS')}"></th:block> with version [[${applicationContext.version}]].</p>
 </body>
 </html>
