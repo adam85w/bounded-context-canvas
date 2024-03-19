@@ -38,7 +38,7 @@ class HtmlTemplateService implements TemplateService<String> {
             context.setVariable("timestamp", LocalDateTime.now());
             context.setVariable("applicationContext", applicationContext);
             context.setVariable("boundedContext", boundedContext);
-            context.setVariable("canvasContext", templateContextCollection.getTemplateContext(name));
+            context.setVariable("templateContext", templateContextCollection.getTemplateContext(name));
             return new Template<String>(name, this.templateEngine.process(PREFIX + applicationContext.brand() + "/" + name + SUFFIX, context));
         } catch (TemplateInputException exception) {
             throw new InvalidTemplateFileNameException(applicationContext.brand() + "/" + name + SUFFIX, exception);
