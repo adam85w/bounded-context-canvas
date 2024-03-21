@@ -19,7 +19,7 @@
 <table style="color: #1d1d1d; background-color: #c4c8c5;" cellspacing="0" cellpadding="0">
     <tr>
         <td style="width: 100%;">
-            <table style="width: 100%;">
+            <table style="width: 100%; margin: 0px;">
                 <tr>
                     <td style="width: 50%; padding: 0px 4px; vertical-align:bottom; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;"><h1>Name: <u>[[${boundedContext.name}]]</u></h1></td>
                     <td style="display: none;"></td>
@@ -30,11 +30,11 @@
     </tr>
     <tr>
         <td style="width: 100%;">
-            <table style="width: 100%;">
+            <table style="width: 100%; margin: 0px;">
                 <tr>
                     <td style="width: 50%; padding: 0px 4px; vertical-align:top; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;"><h1>Purpose</h1><p style="text-align: center;">[[${boundedContext.purpose}]]</p></td>
                     <td style="width: 35%; padding: 0px 4px; vertical-align:top; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;"><h1>Strategic Classification</h1>
-                        <table style="width: 100%; padding: 10px; margin-bottom: 8px; border: 3px groove #d2d2d2; background: #c4c8c5;">
+                        <table style="width: 100%; padding: 10px; margin: 6px 6px 6px 0px; border: 3px groove #d2d2d2; background: #c4c8c5;">
                             <tr>
                                 <td style="width: 33%; padding: 0px 4px; border-right: 2px solid #d2d2d2;"><h2>Domain</h2><p>[[${boundedContext.strategicClassification.domain.getName()}]]</p></td>
                                 <td style="width: 33%; padding: 0px 4px; border-right: 2px solid #d2d2d2;"><h2>Business Model</h2><p>[[${boundedContext.strategicClassification.businessModel.getName()}]]</p></td>
@@ -44,7 +44,7 @@
                     </td>
                     <td style="width: 15%; padding: 0px 4px; vertical-align:top; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;">
                         <h1>Domain Rules</h1>
-                        <table style="width: 100%;" cellspacing="5">
+                        <table style="width: 100%;  margin: 6px 6px 6px 0px;" cellspacing="5">
                             <tr>
                                 <td style="width: 100%; padding: 0px 4px; border: 3px groove #d2d2d2; background: #c4c8c5;"><h2>Rule type</h2><p>[[${boundedContext.domainRules.ruleType.getName()}]]</p></td>
                             </tr>
@@ -56,7 +56,7 @@
     </tr>
     <tr>
         <td style="width: 100%;">
-            <table style="width: 100%;">
+            <table style="width: 100%; margin: 0px;">
                 <tr>
                     <td style="width: 35%; padding: 0px 4px; vertical-align:top; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;">
                         <h1>Inbound Communication</h1>
@@ -122,7 +122,7 @@
     </tr>
     <tr>
         <td style="width: 100%;">
-            <table style="width: 100%;">
+            <table style="width: 100%; margin: 0px;">
                 <tr>
                     <td style="width: 35%; padding: 0px 4px; vertical-align:top; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;">
                         <h1>Assumptions</h1>
@@ -149,7 +149,7 @@
     </tr>
     <tr>
         <td style="width: 100%;">
-            <table style="width: 100%;">
+            <table style="width: 100%; margin: 0px;">
                 <tr>
                     <td style="width: 50%; padding: 0px 4px; background-color: #d2d2d2; border: 15px outset #d2d2d2; border-right: 10px outset; border-left: 10px inset; border-top: 0px;">
                         <p><small>generated at <th:block th:text="${#temporals.format(timestamp,'yyyy-MM-dd HH:mm:ss.SSS')}"></th:block></small></p>
