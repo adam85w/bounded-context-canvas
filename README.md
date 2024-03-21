@@ -21,7 +21,7 @@ java --version
 ```
 To execute the application:
 ```bash
-java -jar ./bounded-context-template-x.x.jar
+java -jar ./bounded-context-canvas-x.x.jar
 ```
 The swagger interface is available at: /swagger-ui/index.html
 
