@@ -23,8 +23,15 @@ To execute the application:
 ```bash
 java -jar ./bounded-context-canvas-x.x.jar
 ```
-The swagger interface is available at: /swagger-ui/index.html
+The swagger interface is available at: :8083/swagger-ui/index.html
 
+# Docker & Podman
+```bash
+podman build -t bounded-context-canvas .
+```
+```bash
+podman run -dp 8083:8083 bounded-context-canvas
+```
 
 # Extending
 ## Templates
