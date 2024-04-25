@@ -1,21 +1,8 @@
 templates:
-  - name: basic
-    author: Adam Woźniak
-    support:
-      - IMAGE
-      - PDF
-      - HTML
-      - CONFLUENCE
   - name: original
     author: Adam Woźniak
     support:
       - HTML
-  - name: keyboard
-    author: Adam Woźniak
-    support:
-      - HTML
-      - PDF
-      - IMAGE
   - name: document
     author: Adam Woźniak
     support:
@@ -23,12 +10,6 @@ templates:
       - PDF
       - CONFLUENCE
       - MARKDOWN
-  - name: sea
-    author: Adam Woźniak
-    support:
-      - HTML
-      - PDF
-      - IMAGE
   - name: modern
     author: Adam Woźniak
     support:

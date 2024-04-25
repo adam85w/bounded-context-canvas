@@ -62,7 +62,7 @@ public class MarkdownControllerTests {
 
     @Test
     public void unsupportedTemplateNameShouldReturnError() throws IOException {
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(ENDPOINT + "?templateName=keyboard", createEntity("ok"), String.class);
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(ENDPOINT + "?templateName=original", createEntity("ok"), String.class);
         Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 
         ErrorResponse response = objectMapper.readValue(responseEntity.getBody(), ErrorResponse.class);
