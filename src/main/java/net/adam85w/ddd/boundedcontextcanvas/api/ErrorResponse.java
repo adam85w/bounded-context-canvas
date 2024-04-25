@@ -1,12 +1,11 @@
 package net.adam85w.ddd.boundedcontextcanvas.api;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import net.adam85w.ddd.boundedcontextcanvas.ApplicationContext;
 
 import java.time.LocalDateTime;
 
 public class ErrorResponse {
-
-    private final LocalDateTime time;
 
     private final String appName;
 
@@ -18,18 +17,20 @@ public class ErrorResponse {
 
     private final String message;
 
+    private final LocalDateTime time;
 
-    public ErrorResponse(ApplicationContext applicationContext, String path, String message) {
-        this.appName = applicationContext.name();
-        this.appVersion = applicationContext.version();
-        this.brand = applicationContext.brand();
+    @JsonCreator(mode = JsonCreator.Mode.DEFAULT)
+    public ErrorResponse(String appName, String appVersion, String brand, String path, String message, LocalDateTime time) {
+        this.appName = appName;
+        this.appVersion = appVersion;
+        this.brand = brand;
         this.message = message;
         this.path = path;
-        this.time = LocalDateTime.now();
+        this.time = time;
     }
 
-    public LocalDateTime getTime() {
-        return time;
+    public ErrorResponse(ApplicationContext applicationContext, String path, String message) {
+        this(applicationContext.name(), applicationContext.version(), applicationContext.brand(), path, message, LocalDateTime.now());
     }
 
     public String getAppName() {
@@ -50,5 +51,9 @@ public class ErrorResponse {
 
     public String getMessage() {
         return message;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
     }
 }
