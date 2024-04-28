@@ -10,6 +10,8 @@ springdoc:
   swagger-ui:
     path: "/"
 
+security.cors.disabled: false
+
 management.endpoints.web.exposure.include: health, info, context
 management.info.env.enabled: true
 
