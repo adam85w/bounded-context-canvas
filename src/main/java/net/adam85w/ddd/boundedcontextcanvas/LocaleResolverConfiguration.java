@@ -11,7 +11,7 @@ import java.util.Locale;
 class LocaleResolverConfiguration {
 
     @Bean
-    public LocaleResolver localResolver() {
+    public LocaleResolver localeResolver() {
         return new FixedLocaleResolver(Locale.ENGLISH);
     }
 }
