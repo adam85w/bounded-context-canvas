@@ -61,6 +61,15 @@ public class ImageControllerTests {
     }
 
     @Test
+    public void exceededLimitOfRolesShouldReturnError() throws IOException {
+        ResponseEntity<byte[]> responseEntity = restTemplate.postForEntity(ENDPOINT, createEntity("exceeded_limit_of_roles"), byte[].class);
+        Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        ErrorResponse response = objectMapper.readValue(responseEntity.getBody(), ErrorResponse.class);
+        Assertions.assertThat(response.getMessage()).isEqualTo("Value of the field: domainRoles.roleTypes is invalid against rule: size must be between 1 and 3");
+    }
+
+    @Test
     public void unsupportedTemplateNameShouldReturnError() throws IOException {
         ResponseEntity<byte[]> responseEntity = restTemplate.postForEntity(ENDPOINT + "?templateName=original", createEntity("ok"), byte[].class);
         Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);

@@ -1,6 +1,6 @@
-package net.adam85w.ddd.boundedcontextcanvas.model.domainrules;
+package net.adam85w.ddd.boundedcontextcanvas.model.domainroles;
 
-public enum RuleType {
+public enum RoleType {
 
     SPECIFICATION("Specification/Draft Model"),
     EXECUTION_MODEL("Execution Model"),
@@ -21,7 +21,7 @@ public enum RuleType {
 
     private final String name;
 
-    RuleType(String name) {
+    RoleType(String name) {
         this.name = name;
     }
 

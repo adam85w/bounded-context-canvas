@@ -5,8 +5,10 @@
     "businessModel": "COMPLIANCE",
     "evolution": "CUSTOM_BUILT"
   },
-  "domainRules": {
-    "ruleType": "EXECUTION_MODEL"
+  "domainRoles": {
+    "roleTypes": [
+      "EXECUTION_MODEL"
+    ]
   },
   "inboundCommunication": [
     {

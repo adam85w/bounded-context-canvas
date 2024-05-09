@@ -2,14 +2,17 @@ package net.adam85w.ddd.boundedcontextcanvas.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
-import net.adam85w.ddd.boundedcontextcanvas.model.domainrules.RuleType;
+import jakarta.validation.constraints.Size;
+import net.adam85w.ddd.boundedcontextcanvas.model.domainroles.RoleType;
 
-public class DomainRules {
+import java.util.List;
 
-    @NotNull
-    @Schema(name = "ruleType", description = """
-            A model is likely to be described by a number of different traits. Review the list below and choose which one applies to the context you are working on or think of your own traits:
+public class DomainRoles {
+
+    @Size(min = 1, max = 3)
+    @Schema(name = "roleTypes", type="array", description = """
+            A model is likely to be described by a number of different traits. Review the list below and choose which one applies to the context you are working on or think of your own traits
+            (It is possible to choose up to three roles, but it is recommended to choose only one for clarity):
             - Specification/Draft Model: Produces a document describing a job/request that needs to be performed. Example: Advertising Campaign Builder
             - Execution Model: Performs or tracks a job. Example: Advertising Campaign Engine
             - Analysis/Audit Model: Monitors the execution. Example: Advertising Campaign Analyser
@@ -26,14 +29,16 @@ public class DomainRules {
             - Funnel Context: Receives documents from multiple upstream contexts and passes them to a single downstream context in a standard format (after applying its own rules).
             - Engagement Context: Provides key features which attract users to keep using the product. Example: Free Financial Advice Context
             - Other
-            """, example = "EXECUTION_MODEL")
-    private final RuleType ruleType;
+            """, example = """
+            [ "EXECUTION_MODEL" ]
+            """)
+    private final List<RoleType> roleTypes;
 
-    public DomainRules(@JsonProperty("ruleType") RuleType ruleType) {
-        this.ruleType = ruleType;
+    public DomainRoles(@JsonProperty("roleTypes") List<RoleType> roleTypes) {
+        this.roleTypes = roleTypes;
     }
 
-    public RuleType getRuleType() {
-        return ruleType;
+    public List<RoleType> getRoleTypes() {
+        return roleTypes;
     }
 }

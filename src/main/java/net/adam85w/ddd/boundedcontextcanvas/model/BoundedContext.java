@@ -35,13 +35,13 @@ public class BoundedContext {
 
     @Valid
     @NotNull
-    @Schema(name ="domainRules", description = """
+    @Schema(name ="domainRoles", description = """
             How can you characterise the behaviour of this bounded context?
             Does it receive high volumes of data and crunch them into insights
             - an analysis context? Or does it enforce a workflow 
             - an execution context? Identifying the different roles a context 
             plays can help to avoid coupling responsibilities.""")
-    private final DomainRules domainRules;
+    private final DomainRoles domainRoles;
 
     @Valid
     @Schema(name = "inboundCommunication", description = "Inbound communication represents collaborations that are initiated by other collaborators.",
@@ -222,7 +222,7 @@ public class BoundedContext {
     public BoundedContext(String name,
                           String purpose,
                           StrategicClassification strategicClassification,
-                          DomainRules domainRules,
+                          DomainRoles domainRoles,
                           List<Communication> inboundCommunication,
                           List<Communication> outboundCommunication,
                           List<UbiquitousLanguage> ubiquitousLanguage,
@@ -233,7 +233,7 @@ public class BoundedContext {
         this.name = name;
         this.purpose = purpose;
         this.strategicClassification = strategicClassification;
-        this.domainRules = domainRules;
+        this.domainRoles = domainRoles;
         this.inboundCommunication = inboundCommunication == null ? Collections.emptyList() : inboundCommunication;
         this.outboundCommunication = outboundCommunication == null ? Collections.emptyList() : outboundCommunication;
         this.ubiquitousLanguage = ubiquitousLanguage;
@@ -256,7 +256,7 @@ public class BoundedContext {
         return strategicClassification;
     }
 
-    public DomainRules getDomainRules() { return domainRules; }
+    public DomainRoles getDomainRoles() { return domainRoles; }
 
     public List<Communication> getInboundCommunication() {
         return inboundCommunication;

@@ -1,5 +1,5 @@
 {
-  "name": "Scoring"
+  "name": "Scoring",
   "purpose": "Provide a fully automated, highly trustable and reliable assessment\nof the approvability of a credit application for retail mortgage loans.",
   "strategicClassification": {
     "domain": "CORE",
@@ -8,7 +8,10 @@
   },
   "domainRoles": {
     "roleTypes": [
-      "EXECUTION_MODEL"
+      "EXECUTION_MODEL",
+      "ANALYSIS",
+      "APPROVER",
+      "ENFORCER"
     ]
   },
   "inboundCommunication": [

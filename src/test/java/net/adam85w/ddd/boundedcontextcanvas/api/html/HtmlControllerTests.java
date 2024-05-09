@@ -52,6 +52,15 @@ public class HtmlControllerTests {
     }
 
     @Test
+    public void exceededLimitOfRolesShouldReturnError() throws IOException {
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(ENDPOINT, createEntity("exceeded_limit_of_roles"), String.class);
+        Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+
+        ErrorResponse response = objectMapper.readValue(responseEntity.getBody(), ErrorResponse.class);
+        Assertions.assertThat(response.getMessage()).isEqualTo("Value of the field: domainRoles.roleTypes is invalid against rule: size must be between 1 and 3");
+    }
+
+    @Test
     public void unrecognizedTemplateNameShouldReturnError() throws IOException {
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(ENDPOINT + "?templateName=invalid_name", createEntity("ok"), String.class);
         Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);

@@ -50,12 +50,14 @@
             </div>
         </div>
         <div class="col-2 border border-secondary-subtle">
-            <h5 class="text-start">Domain Rules</h5>
+            <h5 class="text-start">Domain Roles</h5>
             <div class="row">
                 <div class="col-12">
-                    <h6 class="text-start">Rule type</h6>
+                    <h6 class="text-start">Role types</h6>
                     <div class="alert alert-warning shadow p-3 mb-5" role="alert">
-                        <span>[[${boundedContext.domainRules.ruleType.getName()}]]</span>
+                        <ul>
+                            <li style="padding-bottom: 3px;" th:each="roleType: ${boundedContext.domainRoles.roleTypes}" th:text="${roleType.getName()}" />
+                        </ul>
                     </div>
                 </div>
             </div>

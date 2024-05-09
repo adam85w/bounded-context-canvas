@@ -43,10 +43,14 @@
                         </table>
                     </td>
                     <td style="width: 15%; padding: 0px 4px; vertical-align:top; border-top: 5px dotted #005792;">
-                        <h1>Domain Rules</h1>
+                        <h1>Domain Roles</h1>
                         <table style="width: 100%; margin: 5px 5px 5px 0px;" cellspacing="5">
                             <tr>
-                                <td style="width: 100%; padding: 0px 4px; border: 3px dotted #005792"><h2>Rule type</h2><p>[[${boundedContext.domainRules.ruleType.getName()}]]</p></td>
+                                <td style="width: 100%; padding: 0px 4px; border: 3px dotted #005792"><h2>Role types</h2>
+                                    <ul>
+                                        <li style="padding-bottom: 3px;" th:each="roleType: ${boundedContext.domainRoles.roleTypes}" th:text="${roleType.getName()}" />
+                                    </ul>
+                                </td>
                             </tr>
                         </table>
                     </td>

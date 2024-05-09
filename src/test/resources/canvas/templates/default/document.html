@@ -23,8 +23,11 @@
 <h2>Domain</h2><p>[[${boundedContext.strategicClassification.domain.getName()}]]</p>
 <h2>Business Model</h2><p>[[${boundedContext.strategicClassification.businessModel.getName()}]]</p>
 <h2>Evolution</h2><p>[[${boundedContext.strategicClassification.evolution.getName()}]]</p>
-<h1>Domain Rules</h1>
-<h2>Rule type</h2><p>[[${boundedContext.domainRules.ruleType.getName()}]]</p>
+<h1>Domain Roles</h1>
+<h2>Role types</h2>
+<ul>
+    <li th:each="roleType: ${boundedContext.domainRoles.roleTypes}" th:text="${roleType.getName()}" />
+</ul>
 <h1>Ubiquitous Language</h1>
 <p><small>Context specific domain terminology</small></p>
 <ul>
