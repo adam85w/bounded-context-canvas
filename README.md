@@ -1,7 +1,7 @@
 # Description
 The Bounded Context Canvas Application project aims to automate the creation of bounded context canvases.
 
-The application utilizes the documentation prepared by Domain-Driven Design Crew  available at: https://github.com/ddd-crew/bounded-context-template which fulfill the DDD principles.
+The application utilizes the documentation prepared by Domain-Driven Design Crew  available at: https://github.com/ddd-crew/bounded-context-canvas which fulfill the DDD principles.
 
 # Key features
 1. Bounded context canvas generated from JSON using a REST API.
