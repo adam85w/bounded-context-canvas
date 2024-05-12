@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>integration example</title>
+    <script>
+        const file = "./integration_example.json";
+        const url = "http://localhost:8083/api/bounded-context-canvas/html?templateName=modern";
+
+        generateCanvas();
+
+        async function generateCanvas() {
+            try {
+                let payload = await loadJson();
+                fetch(url, {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                    }).then(response => {
+                        if (response.ok) {
+                            return response.text();
+                        } else {
+                            response.json().then(json => displayError(json.message));
+                        }
+                    }).then(html => document.getElementById("result").innerHTML = html)
+                    .catch(error => displayError("Service is unavailable, please check the connection."));
+            } catch(error) {
+                displayError(error);
+            }
+        }
+
+        async function loadJson() {
+             let response = await fetch(file);
+             if (!response.ok) {
+                throw new Error("Unable to open a local json file with a payload, please check the file.");
+             }
+             return await response.json();
+        }
+
+        function displayError(message) {
+            console.error(message);
+            document.getElementById("result").innerHTML = "<h1>Error</h1><p>" + message + "</p>";
+        }
+    </script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>
