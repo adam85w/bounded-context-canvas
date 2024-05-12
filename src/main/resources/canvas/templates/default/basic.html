@@ -47,8 +47,15 @@
                         <table style="width: 100%; margin: 5px 5px 5px 0px; border: 1px solid #888">
                             <tr>
                                 <td style="width: 100%; padding: 0px 4px; border: 1px solid #888"><h2>Role types</h2>
-                                    <ul>
-                                        <li style="padding-bottom: 3px;" th:each="roleType: ${boundedContext.domainRoles.roleTypes}" th:text="${roleType.getName()}" />
+                                    <ul style="margin-left: 12px; padding-left: 12px;">
+                                        <th:block th:each="roleType, status: ${boundedContext.domainRoles.roleTypes}">
+                                            <th:block th:if="!${status.last}">
+                                                <li style="padding-bottom: 3px;" th:text="${roleType.getName()}" />
+                                            </th:block>
+                                            <th:block th:if="${status.last}">
+                                                <li th:text="${roleType.getName()}" />
+                                            </th:block>
+                                        </th:block>
                                     </ul>
                                 </td>
                             </tr>

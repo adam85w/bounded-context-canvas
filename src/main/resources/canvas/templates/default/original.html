@@ -55,9 +55,9 @@
                 <div class="col-12">
                     <h6 class="text-start">Role types</h6>
                     <div class="alert alert-warning shadow p-3 mb-5" role="alert">
-                        <ul>
-                            <li style="padding-bottom: 3px;" th:each="roleType: ${boundedContext.domainRoles.roleTypes}" th:text="${roleType.getName()}" />
-                        </ul>
+                        <th:block th:each="roleType, status: ${boundedContext.domainRoles.roleTypes}">
+                            <span>[[${roleType.getName()}]]</span><th:block th:if="!${status.last}">,<br /></th:block>
+                        </th:block>
                     </div>
                 </div>
             </div>
