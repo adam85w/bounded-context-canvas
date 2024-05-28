@@ -18,3 +18,7 @@ management.info.env.enabled: true
 info.app.name: ${application.name}
 info.app.version: ${application.version}
 info.app.brand: ${application.brand}
+
+template.image:
+  width: 1600
+  extension: png
