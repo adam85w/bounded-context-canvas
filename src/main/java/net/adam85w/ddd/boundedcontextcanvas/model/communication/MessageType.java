@@ -3,6 +3,7 @@ package net.adam85w.ddd.boundedcontextcanvas.model.communication;
 public enum MessageType {
     REQUEST("Request"),
     QUERY("Query"),
+    COMMAND("Command"),
     EVENT("Event");
 
     private final String name;
