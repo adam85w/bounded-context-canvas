@@ -12,11 +12,10 @@ public record TemplateContextCollection(Set<TemplateContext> templates) {
     }
 
     public TemplateContext getTemplateContext(String name) {
-        var canvasContextOptional = templates.stream().filter(templateContext -> templateContext.name().equals(name)).findFirst();
-        if (canvasContextOptional.isEmpty()) {
-            throw new InvalidTemplateFileNameException(name);
-        }
-        return canvasContextOptional.get();
+        return templates.stream()
+                .filter(templateContext -> templateContext.name().equals(name))
+                .findFirst()
+                .orElseThrow(() -> new InvalidTemplateFileNameException(name));
     }
 
     public boolean templateExists(String name) {

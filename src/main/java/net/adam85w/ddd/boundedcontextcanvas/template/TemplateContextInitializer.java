@@ -25,10 +25,9 @@ class TemplateContextInitializer {
     @Bean
     TemplateContextCollection createTemplateContextContainer() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-        TemplateContextCollection templateContextCollection = null;
         LOGGER.info("Start initializing templates according to the brand: {}", applicationContext.brand());
         var resource = resourceLoader.getResource("classpath:canvas/templates/" + applicationContext.brand() + "/context.yaml").getInputStream().readAllBytes();
-        templateContextCollection = objectMapper.readValue(resource, TemplateContextCollection.class);
+        TemplateContextCollection templateContextCollection = objectMapper.readValue(resource, TemplateContextCollection.class);
         templateContextCollection.templates().forEach(canvasContext -> LOGGER.info("Template context: {} was loaded", canvasContext.name()));
         return templateContextCollection;
     }

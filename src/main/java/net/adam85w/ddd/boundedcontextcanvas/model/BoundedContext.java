@@ -57,7 +57,7 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Application submitted",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ]
                 },
@@ -71,7 +71,7 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Application marked as checked",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ]
                 },
@@ -85,7 +85,7 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Real Estate ratios calculated",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ]
                 }
@@ -103,7 +103,7 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Pre Scoring Green",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ],
                   "collaborators": [
@@ -117,7 +117,7 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Pre Scoring Red",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ],
                   "collaborators": [
@@ -131,11 +131,11 @@ public class BoundedContext {
                   "messages": [
                     {
                       "name": "Main Scoring Green",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     },
                     {
                       "name": "Main Scoring Red",
-                      "type": "REQUEST"
+                      "type": "COMMAND"
                     }
                   ],
                   "collaborators": [
