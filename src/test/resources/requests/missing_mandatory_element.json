@@ -21,7 +21,7 @@
       "messages": [
         {
           "name": "Application submitted",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ]
     },
@@ -35,7 +35,7 @@
       "messages": [
         {
           "name": "Application marked as checked",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ]
     },
@@ -49,7 +49,7 @@
       "messages": [
         {
           "name": "Real Estate ratios calculated",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ]
     }
@@ -59,7 +59,7 @@
       "messages": [
         {
           "name": "Pre Scoring Green",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ],
       "collaborators": [
@@ -73,7 +73,7 @@
       "messages": [
         {
           "name": "Pre Scoring Red",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ],
       "collaborators": [
@@ -87,11 +87,11 @@
       "messages": [
         {
           "name": "Main Scoring Green",
-          "type": "REQUEST"
+          "type": "COMMAND"
         },
         {
           "name": "Main Scoring Red",
-          "type": "REQUEST"
+          "type": "COMMAND"
         }
       ],
       "collaborators": [
