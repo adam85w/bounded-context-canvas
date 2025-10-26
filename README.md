@@ -15,7 +15,7 @@ To build the application use the maven command
 ```bash
 mvn install
 ```
-To run the application the Java 17 is needed, to check your version of Java use the command:
+To run the application the Java 21 is needed, to check your version of Java use the command:
 ```bash
 java --version
 ```
